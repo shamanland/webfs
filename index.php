@@ -63,8 +63,19 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     unlink($file);
     unlink($meta);
 } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    header("Content-Disposition: Attachment");
-    if (readfile($file) === FALSE) {
+    if (file_exists($file)) {
+        header("Content-Type: application/octet-stream");
+        header("Content-Disposition: Attachment");
+        readfile($file);
+    } else {
+        http_response_code(404);
+    }
+} else if ($_SERVER["REQUEST_METHOD"] == "HEAD") {
+    if (file_exists($file)) {
+        header("Content-Type: application/octet-stream");
+        header("Content-Disposition: Attachment");
+        header("Content-Length: " . filesize($file));
+    } else {
         http_response_code(404);
     }
 } else {
