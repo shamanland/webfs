@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?$1 [L,QSA]
+
+AuthName "Restricted area"
+AuthType Basic
+AuthGroupFile /dev/null
+# make sure you replaced this path by your one
+AuthUserFile /path/to/.htpasswd
+
+<Limit PUT DELETE>
+    Require valid-user
+</Limit>
