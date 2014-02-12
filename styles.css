@@ -1,0 +1,13 @@
+#page {
+    text-align: center;
+}
+
+#page #files {
+    text-align: left;
+    margin: 0 auto;
+}
+
+#page #footer {
+    display: inline-block;
+    margin-top: 8px;
+}

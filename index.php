@@ -11,13 +11,13 @@ if ($orig == "/") {
     echo "\n";
     echo "<link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\" />";
     echo "\n";
-    echo "</head><body>";
+    echo "</head><body><div id=\"page\">";
     echo "\n";
     echo "<h1>";
     echo $_SERVER["HTTP_HOST"];
     echo "</h1>";
     echo "\n";
-    echo "<table>";
+    echo "<table id=\"files\">";
     echo "\n";
 
     if ($handle = opendir($FILES_DIR)) {
@@ -42,9 +42,9 @@ if ($orig == "/") {
 
     echo "</table>";
     echo "\n";
-    echo "<span>Powered by <a href=\"http://github.com/shamanland/webfs\">WebFS</a></span>";
+    echo "<span id=\"footer\">Powered by <a href=\"http://github.com/shamanland/webfs\">WebFS</a></span>";
     echo "\n";
-    echo "</body></html>";
+    echo "</div></body></html>";
     exit(0);
 }
 
