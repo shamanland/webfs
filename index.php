@@ -7,13 +7,18 @@ if ($orig == "/") {
     echo "\n";
     echo "<html><head><title>";
     echo $_SERVER["HTTP_HOST"];
-    echo "</title></head>";
+    echo "</title>";
     echo "\n";
-    echo "<body><h1>";
+    echo "<link href=\"styles.css\" rel=\"stylesheet\" type=\"text/css\" />";
+    echo "\n";
+    echo "</head><body>";
+    echo "\n";
+    echo "<h1>";
     echo $_SERVER["HTTP_HOST"];
     echo "</h1>";
     echo "\n";
     echo "<table>";
+    echo "\n";
 
     if ($handle = opendir($FILES_DIR)) {
         while (false !== ($entry = readdir($handle))) {
@@ -35,7 +40,11 @@ if ($orig == "/") {
         closedir($handle);
     }
 
-    echo "</table></body></html>";
+    echo "</table>";
+    echo "\n";
+    echo "<span>Powered by <a href=\"http://github.com/shamanland/webfs\">WebFS</a></span>";
+    echo "\n";
+    echo "</body></html>";
     exit(0);
 }
 
